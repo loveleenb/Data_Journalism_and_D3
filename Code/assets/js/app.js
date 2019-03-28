@@ -20,28 +20,14 @@ var svg = d3.select("#scatter")
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-// Load csv data 
-// https://cors.io/?
-
-//url = "https://cors.io/assets/data/data.csv"
 d3.csv("assets/data/data.csv").then(function(jData) {
 
-  //if (error) return console.warn(error);
-
-  //console.log(jData);
-
-  //var healthcare = [];
-  //var poverty = [];
   // cast the data from the csv as numbers
   jData.forEach(function(data) {
     data.healthcare = +data.healthcare;
     data.poverty = +data.poverty;
-    //healthcare.push(+data.healthcare);
-    //poverty.push(+data.poverty);
 
   });
-  //console.log(healthcare);
-  //console.log(poverty)
 
   // Create a scale for your independent (x) coordinates
   var xScale = d3.scaleLinear()
